@@ -1,0 +1,9 @@
+binary	suite	run	seconds	processes
+before	remote_ok	1	63.11	13 processes: 60 action cache hit, 1 internal, 24 remote.
+before	remote_ok	2	61.85	13 processes: 1 internal, 24 remote.
+before	remote_ok	3	61.41	13 processes: 1 internal, 24 remote.
+before	local_only	1	61.27	13 processes: 60 action cache hit, 1 internal, 24 linux-sandbox.
+after	remote_ok	1	6.62	13 processes: 60 action cache hit, 1 internal, 24 remote.
+after	remote_ok	2	5.60	13 processes: 1 internal, 24 remote.
+after	remote_ok	3	5.50	13 processes: 1 internal, 24 remote.
+after	local_only	1	61.32	13 processes: 60 action cache hit, 1 internal, 24 linux-sandbox.

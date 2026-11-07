@@ -48,10 +48,10 @@ for pair in "before:$BAZEL_BEFORE" "after:$BAZEL_AFTER"; do
     (cd "$ws" && "$bazel" --output_base="$ob" build //:app "${common[@]}" \
         --remote_download_outputs=toplevel) > "$log" 2>&1
     t1=$(now)
-    procs=$(grep -Eo '[0-9]+ processes?:.*' "$log" | tail -1 || true)
+    procs=$(grep -Eo '[0-9]+ process(es)?:.*' "$log" | tail -1 || true)
     hits=$(grep -Eo '[0-9]+ remote cache hit' <<<"$procs" | grep -Eo '^[0-9]+' || echo 0)
     printf "%s\t%s\t%s\t%s\t%s\n" "$label" "$run" "$(elapsed "$t0" "$t1")" "$hits" "${procs:-none}" | tee -a "$OUT"
   done
-  "$bazel" --output_base="$ob" shutdown
+  (cd "$ws" && "$bazel" --output_base="$ob" shutdown)
   stop_worker
 done

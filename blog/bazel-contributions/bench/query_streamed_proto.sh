@@ -53,4 +53,4 @@ for run in $(seq 1 "$RUNS"); do
   same=no; cmp -s "$BENCH_ROOT/serial.pb" "$BENCH_ROOT/parallel.pb" && same=yes
   printf "parallel\t%s\t%s\t%s\t%s\n" "$run" "$(elapsed "$t0" "$t1")" "$(stat -c %s "$BENCH_ROOT/parallel.pb")" "$same" | tee -a "$OUT"
 done
-"$BAZEL" --output_base="$ob" shutdown
+(cd "$ws" && "$BAZEL" --output_base="$ob" shutdown)

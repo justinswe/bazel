@@ -6,6 +6,7 @@
 #   BAZEL_BEFORE  bazel binary built from the same commit with the change reverted
 #   WORKER_JAR    path to the remote worker deploy jar (//src/tools/remote:worker_deploy.jar)
 #   BENCH_ROOT    scratch directory for workspaces, output bases and worker state
+#   WORKER_JAVA   (optional) java binary for the worker; it needs the JDK Bazel was built with
 set -euo pipefail
 
 : "${BENCH_ROOT:?set BENCH_ROOT}"
@@ -28,7 +29,10 @@ start_worker() {
   local jobs="${1:-32}"
   local dir="$BENCH_ROOT/worker"
   rm -rf "$dir" && mkdir -p "$dir/work" "$dir/cas"
-  java -jar "${WORKER_JAR:?set WORKER_JAR}" \
+  # The worker only resolves an Xcode helper through runfiles, which is unused
+  # on Linux, so an empty runfiles directory is enough.
+  mkdir -p "$dir/runfiles"
+  RUNFILES_DIR="$dir/runfiles" "${WORKER_JAVA:-java}" -jar "${WORKER_JAR:?set WORKER_JAR}" \
     --listen_port="$WORKER_PORT" \
     --work_path="$dir/work" \
     --cas_path="$dir/cas" \

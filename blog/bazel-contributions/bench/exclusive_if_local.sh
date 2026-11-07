@@ -42,7 +42,7 @@ run_suite() {
       --jobs=64 --test_output=errors --curses=no --color=no) > "$log" 2>&1
   t1=$(now)
   local procs
-  procs=$(grep -Eo '[0-9]+ processes?:.*' "$log" | tail -1)
+  procs=$(grep -Eo '[0-9]+ process(es)?:.*' "$log" | tail -1)
   printf "%s\t%s\t%s\t%s\t%s\n" "$label" "$suite" "$run" "$(elapsed "$t0" "$t1")" "$procs" | tee -a "$OUT"
 }
 
@@ -59,6 +59,6 @@ for pair in "before:$BAZEL_BEFORE" "after:$BAZEL_AFTER"; do
     run_suite "$label" "$bazel" remote_ok "$run"
   done
   run_suite "$label" "$bazel" local_only 1
-  "$bazel" --output_base="$BENCH_ROOT/ob_eil_$label" shutdown
+  (cd "$ws" && "$bazel" --output_base="$BENCH_ROOT/ob_eil_$label" shutdown)
   stop_worker
 done
