@@ -1,5 +1,5 @@
 cpu: Intel(R) Xeon(R) Processor @ 2.10GHz x 4
 memory: 15 GiB
 kernel: 6.18.44-fc-v310
-bazel source: 56c3a046f (2026-11-07)
+bazel source: 94776af18 (upstream master, 2026-11-04) for the exclusive-if-local and query benchmarks
 worker jdk: 25.0.4
