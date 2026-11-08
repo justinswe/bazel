@@ -1,0 +1,9 @@
+cpu: Intel(R) Xeon(R) Processor @ 2.10GHz x 4
+memory: 15 GiB
+kernel: 6.18.44-fc-v310
+bazel source: 94776af18 (upstream master, 2026-11-04) for the exclusive-if-local and query benchmarks
+worker jdk: 25.0.4
+bwob benchmark binaries: 9aae5a6ad (before) and 0f5e81db5 (after), upstream master 2026-08-27.
+  At current master, later changes to action cache validation also avoid the
+  re-execution, so the comparison is made at the commit where the fix landed.
+exclusive-if-local "before" binary: 94776af18 with that change's src/main diff reversed.
