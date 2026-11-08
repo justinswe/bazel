@@ -1,0 +1,15 @@
+mode	run	seconds	bytes	identical
+serial	1	2.24	137980648	-
+parallel	1	0.95	137980648	yes
+serial	2	2.14	137980648	-
+parallel	2	0.95	137980648	yes
+serial	3	2.17	137980648	-
+parallel	3	0.89	137980648	yes
+serial	4	2.25	137980648	-
+parallel	4	0.91	137980648	yes
+serial	5	2.34	137980648	-
+parallel	5	0.82	137980648	yes
+serial	6	2.33	137980648	-
+parallel	6	0.84	137980648	yes
+serial	7	2.18	137980648	-
+parallel	7	0.85	137980648	yes
