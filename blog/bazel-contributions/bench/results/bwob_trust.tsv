@@ -1,0 +1,11 @@
+binary	run	seconds	remote_cache_hits	processes
+before	1	3.09	2000	2001 processes: 2 action cache hit, 2000 remote cache hit, 1 internal.
+before	2	1.96	2000	2001 processes: 1 action cache hit, 2000 remote cache hit, 1 internal.
+before	3	1.73	2000	2001 processes: 1 action cache hit, 2000 remote cache hit, 1 internal.
+before	4	1.42	2000	2001 processes: 1 action cache hit, 2000 remote cache hit, 1 internal.
+before	5	1.34	2000	2001 processes: 1 action cache hit, 2000 remote cache hit, 1 internal.
+after	1	0.45	0	1 process: 2001 action cache hit, 1 internal.
+after	2	0.36	0	1 process: 2001 action cache hit, 1 internal.
+after	3	0.30	0	1 process: 2001 action cache hit, 1 internal.
+after	4	0.30	0	1 process: 2001 action cache hit, 1 internal.
+after	5	0.29	0	1 process: 2001 action cache hit, 1 internal.
